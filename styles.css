@@ -1,0 +1,831 @@
+/* RESET Y VARIABLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-main: #0d0d0d;
+    --bg-card: #161616;
+    --red-primary: #e63946;
+    --yellow-primary: #ffcc00;
+    --text-light: #f1f1f1;
+    --text-muted: #777777;
+    --border-color: #262626;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.main-header {
+    background-color: #050505;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo a {
+    color: var(--text-light);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo a span {
+    color: var(--red-primary);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.navbar a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--red-primary);
+    background-color: rgba(230, 57, 70, 0.1);
+}
+
+/* CONTENEDORES GENERALES */
+.content-container,
+.interactive-container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title p {
+    color: #aaaaaa;
+}
+
+/* HERO (INICIO) */
+.hero-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.5rem;
+}
+
+.hero-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--red-primary);
+    border-radius: 8px;
+    max-width: 650px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero-card p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* TARJETAS GENERALES */
+.info-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--yellow-primary);
+}
+
+.info-card.yellow-theme {
+    border-top: 4px solid var(--yellow-primary);
+}
+
+.card-example {
+    font-size: 0.85rem;
+    color: #888;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* SECCIÓN SEÑALES (DOS COLUMNAS) */
+.interactive-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .interactive-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cat-btn {
+    background-color: var(--bg-card);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.cat-btn:hover {
+    border-color: var(--yellow-primary);
+}
+
+.cat-btn.active {
+    background-color: rgba(255, 204, 0, 0.08);
+    border-color: var(--yellow-primary);
+    color: var(--yellow-primary);
+    font-weight: 600;
+}
+
+.image-placeholder,
+.block-image-placeholder {
+    background-color: #111;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.image-placeholder {
+    height: 220px;
+}
+
+.placeholder-text,
+.block-image-placeholder span {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.right-panel {
+    position: sticky;
+    top: 6rem;
+}
+
+.detail-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--yellow-primary);
+    border-radius: 8px;
+    padding: 2.5rem;
+}
+
+.detail-card h3 {
+    color: var(--yellow-primary);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.detail-card p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* BLOQUES DETALLADOS */
+.detailed-sections-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.detail-block {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--yellow-primary);
+    border-radius: 8px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .detail-block {
+        grid-template-columns: 1fr;
+    }
+}
+
+.block-info h3 {
+    color: var(--yellow-primary);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.block-info p {
+    color: #ccc;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.block-list {
+    list-style-type: disc;
+    padding-left: 1.2rem;
+    color: #bbb;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.block-list li {
+    margin-bottom: 0.5rem;
+}
+
+.block-list strong {
+    color: var(--text-light);
+}
+
+/* FOOTER */
+.main-footer {
+    background-color: #050505;
+    border-top: 1px solid var(--border-color);
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.footer-content .credits {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* SECCIÓN REGLAMENTARIAS */
+.reglamentarias-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.reg-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--yellow-primary);
+    border-radius: 8px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Texto a la izquierda, hueco de imagen a la derecha */
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Se acomoda a una columna en pantallas de celular o tablets chicas */
+@media (max-width: 850px) {
+    .reg-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reg-content h3 {
+    color: var(--yellow-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.reg-content p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.reg-list {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.reg-list li {
+    font-size: 0.9rem;
+    color: #bbbbbb;
+    line-height: 1.4;
+    padding-left: 1rem;
+    border-left: 2px solid var(--yellow-primary); /* Detalle en amarillo */
+}
+
+.reg-list strong {
+    color: var(--text-light);
+}
+
+/* Hueco  para la imagen de las señales reglamentarias */
+.reg-image-placeholder {
+    background-color: #111111;
+    border: 2px dashed var(--border-color);
+    border-radius: 6px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.reg-image-placeholder span {
+    color: #666666;
+    font-size: 0.8rem;
+}
+
+/* SECCIÓN DE VELOCIDADES (DISEÑO MÉTRICO)*/
+
+/* Grid de Tarjetas de Métricas Superiores */
+.speed-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.metric-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--yellow-primary);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.metric-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--yellow-primary);
+    margin-bottom: 0.3rem;
+}
+
+.metric-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.metric-desc {
+    color: #999999;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Stack de Cajas Explicativas */
+.speed-info-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.speed-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--yellow-primary);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.speed-box h3 {
+    color: var(--yellow-primary);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.speed-box p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Pasos numerados para la física del frenado */
+.speed-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #111111;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.step-num {
+    background-color: var(--yellow-primary);
+    color: #000000;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}
+
+.step div {
+    color: #bbbbbb;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.step strong {
+    color: var(--text-light);
+}
+
+.highlight-text {
+    background-color: rgba(255, 204, 0, 0.05);
+    border: 1px dashed var(--yellow-primary);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    color: #dddddd;
+}
+
+/* Lista de viñetas para otros vehículos */
+.speed-bullet-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: #bbbbbb;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.speed-bullet-list strong {
+    color: var(--text-light);
+}
+
+/* Contenedor de Etiquetas (Tags) */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.vial-tag {
+    background-color: #1a1a1a;
+    border: 1px solid var(--border-color);
+    color: #cccccc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/*CONDUCCIÓN NOCTURNA */
+
+.night-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+    .night-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.night-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.2rem;
+}
+
+.night-panel.warning-side {
+    border-top: 4px solid #ff4d4d; /*advertencias nocturnas */
+}
+
+.night-panel.action-side {
+    border-top: 4px solid var(--yellow-primary);
+}
+
+.night-panel h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.night-panel p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.night-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.night-list li {
+    font-size: 0.9rem;
+    color: #bbbbbb;
+    line-height: 1.4;
+}
+
+.night-list strong {
+    color: var(--text-light);
+}
+
+.tip-box {
+    background-color: #111111;
+    border-left: 3px solid #ff4d4d;
+    padding: 0.9rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #aaaaaa;
+}
+
+/* Check items */
+.check-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    background-color: #111111;
+    padding: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--yellow-primary);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.check-item div {
+    font-size: 0.9rem;
+    color: #bbbbbb;
+    line-height: 1.4;
+}
+
+.check-item strong {
+    color: var(--text-light);
+}
+
+/* Banner Inferior Completo */
+.night-full-banner {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--yellow-primary);
+    border-radius: 8px;
+    padding: 2.5rem;
+}
+
+.night-full-banner h3 {
+    color: var(--yellow-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.protocol-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 800px) {
+    .protocol-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.proto-col {
+    background-color: #111111;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.proto-col h4 {
+    color: var(--text-light);
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+}
+
+.proto-col p {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.sleep-warning {
+    background-color: rgba(255, 204, 0, 0.05);
+    border: 1px dashed var(--yellow-primary);
+    padding: 1.2rem;
+    border-radius: 6px;
+    color: #dddddd;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.sleep-warning strong {
+    color: var(--yellow-primary);
+}
+
+/*CONDUCCIÓN DEFENSIVA */
+
+.defensive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.def-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--yellow-primary);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.def-card h3 {
+    color: var(--yellow-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.def-card p {
+    color: #cccccc;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+.def-tag {
+    display: inline-block;
+    background-color: #111111;
+    border: 1px solid var(--border-color);
+    color: #888888;
+    font-size: 0.78rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+/* Mini lista interna de la tarjeta 4 */
+.def-mini-list {
+    list-style: disc;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.def-mini-list li {
+    font-size: 0.88rem;
+    color: #bbbbbb;
+    line-height: 1.4;
+}
+
+.def-mini-list strong {
+    color: var(--text-light);
+}
+
+/* Banner inferior de impactos */
+.def-banner-bottom {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid #ff4d4d; /* Toque rojo sutil de alerta máxima */
+    border-radius: 8px;
+    padding: 2.2rem;
+}
+
+.def-banner-bottom h3 {
+    color: #ff4d4d;
+    margin-bottom: 0.6rem;
+    font-size: 1.3rem;
+}
+
+.def-banner-bottom p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.impact-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.i-step {
+    background-color: #111111;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 6px;
+    color: #bbbbbb;
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.i-step strong {
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 0.3rem;
+}
